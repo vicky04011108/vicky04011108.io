@@ -1,0 +1,439 @@
+/* 
+  無印風配色 (Muji Style Palette)
+  ---------------------------------
+*/
+
+:root {
+    --bg-primary: #FAF9F6;
+    --bg-secondary: #F2EFEB;
+    --text-primary: #4A4643;
+    --text-heading: #2D2B2A;
+    --accent-color: #8C7A6B;
+    --accent-hover: #756557;
+    --border-color: #DDD9D5;
+
+    --font-heading: 'Noto Serif TC', serif;
+    --font-body: 'Noto Sans TC', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.8;
+    letter-spacing: 0.05em;
+    font-weight: 300;
+}
+
+h1,
+h2,
+h3,
+h4,
+.logo {
+    font-family: var(--font-heading);
+    color: var(--text-heading);
+    font-weight: 400;
+    letter-spacing: 0.1em;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+/* 共通模組：按鈕 */
+.btn {
+    display: inline-block;
+    padding: 12px 32px;
+    border-radius: 2px;
+    font-family: var(--font-body);
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-hover);
+}
+
+.btn-outline {
+    background-color: transparent;
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+.btn-outline:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+/* 共通模組：通用區塊 */
+.section {
+    padding: 100px 20px;
+}
+
+.bg-secondary {
+    background-color: var(--bg-secondary);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 80px;
+    position: relative;
+    color: var(--text-heading);
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background-color: var(--text-heading);
+    margin: 20px auto 0;
+}
+
+/* 導覽列 */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(250, 249, 246, 0.95);
+    backdrop-filter: blur(5px);
+    border-bottom: 1px solid var(--border-color);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--accent-color);
+    transition: width 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+/* Hero Section (首圖區) */
+.hero-section {
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+    position: relative;
+    background-color: var(--bg-secondary);
+}
+
+.hero-bg {
+    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero-title {
+    font-size: 3rem;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    font-family: var(--font-body);
+    font-weight: 300;
+    color: var(--text-primary);
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    color: var(--text-primary);
+}
+
+/* 動畫基礎 (進場特效) */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    animation-delay: 0.2s;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.scrolled {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* 主題經歷 (Theme Journey) */
+.journey-chapter {
+    margin-bottom: 120px;
+    padding-top: 40px;
+    border-top: 1px dashed var(--border-color);
+}
+
+.journey-chapter:first-child {
+    border-top: none;
+    padding-top: 0;
+}
+
+.chapter-header {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.chapter-number {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+    letter-spacing: 0.2em;
+}
+
+.chapter-title {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+}
+
+.chapter-subtitle {
+    font-size: 1.1rem;
+    color: var(--accent-color);
+}
+
+/* NGO Cards Grid */
+.ngo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.ngo-card {
+    background: #fff;
+    padding: 30px;
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ngo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+}
+
+.card-title {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: var(--text-heading);
+}
+
+.card-desc {
+    font-size: 0.95rem;
+    color: var(--text-primary);
+}
+
+/* 獨立章節內容排版 (蒙古/法國) */
+.chapter-content {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.chapter-reverse .chapter-content {
+    flex-direction: row-reverse;
+}
+
+.chapter-text {
+    flex: 1;
+    font-size: 1.05rem;
+}
+
+.chapter-gallery {
+    flex: 1;
+}
+
+.skill-tags {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.skill-tags li {
+    background: var(--bg-secondary);
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    border-radius: 50px;
+    /* 標籤使用圓角增加柔和感 */
+    border: 1px solid var(--border-color);
+}
+
+/* 預留圖片空間 (Placeholder) */
+.placeholder {
+    background-color: var(--bg-secondary);
+    width: 100%;
+    height: 200px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-color);
+    font-size: 0.9rem;
+}
+
+.placeholder::after {
+    content: '圖片預留區';
+}
+
+.placeholder-main {
+    background-color: #E8E5DF;
+    width: 100%;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-color);
+    font-size: 0.9rem;
+}
+
+.placeholder-main::after {
+    content: '主要活動照片 / 雜誌排版預留';
+}
+
+/* Core Strengths Section / Contact */
+.strengths-wrapper {
+    max-width: 800px;
+    margin: 0 auto 60px;
+}
+
+.strengths-intro {
+    font-size: 1.2rem;
+    line-height: Math.max(2, 1.8);
+    font-family: var(--font-heading);
+    color: var(--text-heading);
+}
+
+.contact-box {
+    background: #fff;
+    padding: 60px 40px;
+    max-width: 600px;
+    margin: 0 auto;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.02);
+}
+
+.contact-box h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+/* RWD - 手機版調整 */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .chapter-content,
+    .chapter-reverse .chapter-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .chapter-title {
+        font-size: 1.8rem;
+    }
+
+    .section {
+        padding: 60px 20px;
+    }
+}
